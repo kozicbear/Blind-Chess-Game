@@ -26,20 +26,6 @@ class Game:
                 visual += "\n"
         print(visual)
 
-    # def test_king_moves(self):
-    #     from King import King
-    #     x_king = King([], 'X', (0, 1), [])
-    #     x_legal_moves = x_king.get_legal_moves()
-    #     assert x_legal_moves == [(0, 0), (0, 2), (1, 0), (1, 1), (1, 2)]
-
-    #     o_king = King([], 'O', (3, 1), [])
-    #     o_legal_moves = o_king.get_legal_moves()
-    #     assert o_legal_moves == [(2, 0), (2, 1), (2, 2), (3, 0), (3, 2)]
-
-    #     o_king = King([], 'O', (1, 1), [])
-    #     o_legal_moves = o_king.get_legal_moves()
-    #     assert o_legal_moves == [(0, 0), (0, 1), (0, 2), (1, 0), (1, 2), (2, 0), (2, 1), (2, 2)]
-
 def main():
     from king import King
     game = Game()
@@ -50,10 +36,6 @@ def main():
 
     o_king = King([], 'O', (3, 1), [])
     o_legal_moves = o_king.get_legal_moves()
-
-    # test cases
-    # should ask Harmon how to do this or search up at some point
-    # game.test_king_moves()
 
     # this main class will have our two king objects
     # whenever we make a move
