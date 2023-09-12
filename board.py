@@ -1,18 +1,18 @@
 class Board:
-    BOARD_SIZE = (4, 3)
     x_king = (0, 1)
     o_king = (3, 1)
-    board = [[]]
+    board = []
 
-    # starting with just a king for simplicity
-    # could add pawns in later
-    def __init__(self):
-        self.board = [
-            [" ", "X", " "],
-            [" ", " ", " "],
-            [" ", " ", " "],
-            [" ", "O", " "]
-        ]
+    def __init__(self, row, col):
+        for i in range(row):
+            self.board.append([])
+            for j in range(col):
+                if i == 0 and j == (col // 2):
+                    self.board[i].append('X')
+                elif i == row - 1 and j == (col // 2):
+                    self.board[i].append('O')
+                else:
+                    self.board[i].append(' ')
 
     def show_board(self):
         visual =  ""
@@ -26,46 +26,9 @@ class Board:
                     visual += "|"+ self.board[row][col] + "|"
             if(row != height - 1):
                 visual += "\n"
+        visual += "\n"
         print(visual)
 
     def make_move(self, piece, move):
-        move = self.convert_move(piece, move)
-        print("move y: ", move[0])
-        print("move x: ", move[1])
-
-        if piece == 'X':
-            print("removing from: ", self.x_king[0], self.x_king[1])
-            self.board[self.x_king[0]][self.x_king[1]] == ' '
-            print("moving X to: ", move[0], move[1])
-            self.board[move[0]][move[1]] == 'X'
-            self.x_king == (move[0], move[1])
-        else:
-            self.board[self.o_king[0]][self.o_king[1]] == ' '
-            self.board[move[0]][move[1]] == 'O'
-            self.o_king == (move[0], move[1])
-
-    def convert_move(self, piece, string_move):
-        y = 0
-        x = 0
-        if piece == 'X':
-            y = self.x_king[0]
-            x = self.x_king[1]
-        else:
-            y = self.o_king[0]
-            x = self.o_king[1]
-        
-        if "UP" in string_move:
-            y -= 1
-
-        if "DOWN" in string_move:
-            y += 1
-
-        if "LEFT" in string_move:
-            x -= 1
-
-        if "RIGHT" in string_move:
-            y += 1
-
-        return (y, x)
-
-            
+        self.board[piece.position[0]][piece.position[1]] = ' '
+        self.board[move[0]][move[1]] = piece.letter
