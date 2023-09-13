@@ -83,8 +83,13 @@ into greater than first-order Markov chains, and delving into something similar 
 chess AI.
 
 ## Creativity
-Include a discussion of whether you believe your system is creative (and why or why not).
-Make sure to credit your sources, including your colleagues if you sought their advice.
+Under the criteria that creative systems are 1) Novel and 2) Valuable, this project is not
+creative. Although I cannot be certain, utilizing probabilities through Markov chains or
+a similar method to enhance chess AI's has been done before. Blind chess itself is a chess
+variant and an inspiration for this game. Nevetheless whether or not someone has built a quirky
+blind king chess game with modified kings is doubtful. In this sense this project could be
+deemed as Novel. Value beyond my own entertainment is hard to find, so I would argue this
+does not meet criteria 2, and conculde this not to be a creative system.
 
 ## Credits
 I would like to credit Professor Sarah Harmon for her help in teaching us about computationally
