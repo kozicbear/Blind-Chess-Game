@@ -1,14 +1,15 @@
 """
 Class to run the Blind Chess Game
 
-Game has two kings that function like in chess with a twist.
-Now they can stand next to each other and capture each other.
+Welcome to the blind chess game!
+This Game has two kings that function like in chess but with a twist.
+Now the two can stand next to each other as well as capture each other.
 Each king is a first order "Markov king" since they take turns
 utilizing a transition matrix to pick their next move.
 
 - The game starts allowing the user to pick the size of their board.
 - The game ends once one King takes the other.
-- Our two kings are represent by an 'X' and an 'O'
+- Our two kings are represented by an 'X' and an 'O'
 - 'X' goes first. Enjoy.
 
 To run game run:
@@ -20,7 +21,7 @@ To run test suite run:
 Note:
 For all pieces in the game their persepctive is relative to the user.
 So both the 'O' and 'X' piece will interpret up as the the users
-perspective which is different from chess where up up for the black
+perspective which is different from chess where up for the black
 king is down for the white king.
 """
 
@@ -71,8 +72,17 @@ class Game:
 
     def main():
         print("Welcome to the blind chess game\nInspired by Markhov Chains.\nTo begin please enter your desired board\n")
-        row = int(input("Enter board row size: "))
-        col = int(input("Enter board column size: "))
+        row = 0
+        col = 0
+        # Validate user input to ensure they dont enter invalid dimension
+        while row < 2 or col < 1:
+            row = int(input("Enter board row size: "))
+            col = int(input("Enter board column size: "))
+            if row < 2:
+                print("Row must be greater than 1")
+            if col < 1:
+                print("Row must be greater than 0")
+
         game = Board(row, col)
         game.show_board()
 
